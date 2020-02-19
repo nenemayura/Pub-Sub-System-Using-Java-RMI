@@ -45,7 +45,6 @@ public class RMIServer implements Communicate {
 		clientIpPortMap = new HashMap<String, Integer>();
 		articleSubscriberMap = new HashMap<String, Set<String>>();
 
-		// publishedArticles = new HashSet<String>();
 	}
 
 	private void intializeTypeList() {
@@ -165,7 +164,6 @@ public class RMIServer implements Communicate {
 	private String[] getSplitArticle(String article) {
 
 		// consider only first three fields and ignore content for subscription
-		// logger.info("validarticle is "+validarticle);
 		String[] split = article.split(DELIM_ARTICLE);
 
 		return split;
@@ -272,7 +270,6 @@ public class RMIServer implements Communicate {
 		if (isValidArticleForPublish(article)) {
 			logger.info("Article is valid to publish");
 			topics = getTopicsToPublish(article);
-			// publishedArticles.add(article);
 			subscribers = getSubscribers(topics, ip);
 			// Since we dont have to publish to clients who subscribe later
 			System.out.println("subscribers size:" + subscribers.size());
@@ -302,8 +299,7 @@ public class RMIServer implements Communicate {
 	}
 
 	private boolean sendViaUDP(String clientIp, int clientPort, String article) {
-		// TODO use Client's Port
-		// int port = 4567;
+		
 		byte[] buf = new byte[1024];
 		buf = article.getBytes();
 		DatagramSocket socket;
