@@ -52,28 +52,23 @@ public class RMIClientExecutor {
 			response = rmiClientConnector.ping();
 			break;
 		case "subscribe":
-			//response= rmiClientConnector.join();
 			response = rmiClientConnector.subscribe(article);
 			break;
 		case "unsubscribe":
 			
-			//response = rmiClientConnector.join();
 			response = rmiClientConnector.unsubscribe(article);
 			
 			break;
 		case "publish":
-			//response= rmiClientConnector.join();
 			response = rmiClientConnector.publish(article);
 			break;
 		case "leave":
 			try {
-				//response= rmiClientConnector.join();
 				
 				response = rmiClientConnector.leave();
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				System.out.println("Subscribing to server to check whether leave is successful or not ");
@@ -81,7 +76,6 @@ public class RMIClientExecutor {
 				rmiClientConnector.subscribe("Science;Origantor;UMN;");
 				
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			break;
