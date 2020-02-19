@@ -12,7 +12,7 @@ public class RMIClientConnectorTest {
 
 	RMIClientConnector rmiClientConnector = new RMIClientConnector(clientIp, clientPort, regisIp);
 
-	// TODO - test for fail over
+	
 
 	@Test
 	public void testJoin() {
@@ -45,10 +45,7 @@ public class RMIClientConnectorTest {
 		assertFalse(response);
 	}
 
-	@Test
-	public void testPublishToDiffClient() {
-		// TODO Test with multiple clients (i.e >1 ip)
-	}
+	
 
 	@Test
 	public void testUnsubscribe() {
@@ -60,8 +57,5 @@ public class RMIClientConnectorTest {
 		assertTrue(response);
 	}
 
-	@Test
-	public void testReceiveViaUDP() {
-		//TODO Test with multiple clients  (i.e >1 ip)
-	}
+	
 }
