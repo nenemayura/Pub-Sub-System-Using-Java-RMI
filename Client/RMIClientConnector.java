@@ -285,7 +285,7 @@ public class RMIClientConnector {
 			String request = "GetList;RMI;" + clientIp + ";" + port;
 			buf = request.getBytes();
 
-			// TODO update InetAddress to be used
+			
 			InetAddress address = InetAddress.getByName(regisIp);
 			DatagramPacket packet = new DatagramPacket(buf, buf.length, address, port);
 			socket.send(packet);
@@ -305,7 +305,7 @@ public class RMIClientConnector {
 	}
 
 
-	//[“IP;BindingName;Port;IP;BindingName;Port;IP;BindingName;Port ... and so on”]
+	//[Â“IP;BindingName;Port;IP;BindingName;Port;IP;BindingName;Port ... and so onÂ”]
 	private List<GroupServer> getGroupServers(String received) {
 		
 		List<GroupServer> groupServers = new ArrayList<GroupServer>();
